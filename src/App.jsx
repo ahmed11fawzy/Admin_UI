@@ -1,33 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
 
+import { useSelector } from 'react-redux'
+import { CssBaseline,ThemeProvider } from '@mui/material'
+import {createTheme} from '@mui/material/styles'
+import './App.css'
+import { themeSettings } from './Constants/them'
+import { useMemo } from 'react'
+import{ BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import Dashboard from './Pages/dashboard/Dashboard'
+import Layout from './Pages/layout/Layout'
 function App() {
-  const [count, setCount] = useState(0)
+  const mode=useSelector((state)=>state.theme.mode)
+  console.log(mode)
+  const theme=useMemo(()=>createTheme(themeSettings(mode)),[mode]) 
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <>  
+      <BrowserRouter>
+        <ThemeProvider theme={theme} >
+          <CssBaseline/>
+          <Routes>
+            <Route element={<Layout/>} >
+                <Route path='/' element={<Navigate to="/dashboard" replace  />} />
+                <Route path='/dashboard' element={<Dashboard/>} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     </>
   )
 }
