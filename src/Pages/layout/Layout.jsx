@@ -1,10 +1,17 @@
-import React, {  useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from '../../Components/Navbar/Navbar'
 import { Box, useMediaQuery } from '@mui/material'
 import Sidebar from '../../Components/Sidebar/Sidebar'
-
+import {useGetUserQuery} from '../../redux/Slices/user'
+import { useSelector } from 'react-redux'
 const Layout = () => {
+  const userId=useSelector((state) => state.theme.userId)
+  const { data: user } = useGetUserQuery(userId)
+  useEffect(() => {
+    
+  }, [user])
+  console.log(user)
   const isNOTMobile = useMediaQuery("(min-width: 600px)")
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   return (
@@ -17,6 +24,7 @@ const Layout = () => {
       />
       <Box   sx={ {width:  "100%" , transition:"width 1s ease"}} >
         <Navbar
+          user={user?.data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
         />

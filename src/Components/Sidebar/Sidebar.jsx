@@ -102,6 +102,15 @@ return (
           borderColor:theme.palette.secondary[200],
           width:drawerWidth,
           flexShrink:0,
+          scrollbarColor: theme.palette.primary.light + theme.palette.background.alt + "!important",
+          "&::-webkit-scrollbar": {
+              backgroundColor: theme.palette.primary.light,
+              width: "8px",
+          },
+          "&::-webkit-scrollbar-thumb": {
+              backgroundColor: theme.palette.primary.light,
+              borderRadius: "8px",
+          },
           
       }
   }}

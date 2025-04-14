@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {DarkModeOutlined, LightModeOutlined ,Menu as MenuIcon , Search,SettingsOutlined,ArrowDropDownOutlined} from '@mui/icons-material'
 import { setTheme } from '../../redux/Slices/theme.slice'
 import { useDispatch } from 'react-redux'
-import { AppBar, Box, IconButton, InputBase, Toolbar, useTheme } from '@mui/material'
+import { AppBar, Box, Button, IconButton, InputBase, Menu, MenuItem, Toolbar, Typography, useTheme } from '@mui/material'
 import FlexBetween from '../FlexBetween/Flexbetween'
+import profile from "../../assets/profile.jpeg"
 
 
 
-
-const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
+const Navbar = ({isSidebarOpen,setIsSidebarOpen,user}) => {
     const dispatch=useDispatch()
+     const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
     const theme=useTheme()
   return (
     <AppBar sx={{background:"none",boxShadow:"none",position:"static"}} >
@@ -49,7 +57,41 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
             <IconButton>
                 <SettingsOutlined/>
             </IconButton>
-            
+            <FlexBetween>
+              <Button onClick={handleClick} sx={{display:"flex",alignItems:"center",gap:"0.5rem",textTransform:"none"}}> 
+                <Box
+                component="img"
+                alt="profile"
+                src={profile}
+                height="32px"
+                width="32px"
+                borderRadius="50%"
+                sx={{objectFit:"cover"}}
+                />
+                <Box textAlign="left">
+
+                  <Typography fontSize="0.85rem" fontWeight="bold" color={theme.palette.secondary[100]}>{user.name}</Typography>
+                  <Typography fontSize="0.75rem" color={theme.palette.grey[500]}>{user.occupation}</Typography>
+
+                
+                </Box>
+                <ArrowDropDownOutlined sx={{color:theme.palette.secondary[300],fontSize:"25px"}}/>
+              </Button>
+              <Menu
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+
+              >    
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+                <MenuItem onClick={handleClose}>Settings</MenuItem>
+              </Menu>
+            </FlexBetween>
         </FlexBetween>
     </Toolbar>
 

@@ -8,6 +8,9 @@ import { useMemo } from 'react'
 import{ BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Dashboard from './Pages/dashboard/Dashboard'
 import Layout from './Pages/layout/Layout'
+import Products from './Pages/Products/Products'
+import Customers from './Pages/customers/Customers'
+import Transaction from './Pages/transaction/Transaction'
 function App() {
   const mode=useSelector((state)=>state.theme.mode)
   console.log(mode)
@@ -23,6 +26,9 @@ function App() {
             <Route element={<Layout/>} >
                 <Route path='/' element={<Navigate to="/dashboard" replace  />} />
                 <Route path='/dashboard' element={<Dashboard/>} />
+                <Route path='/products' element={<Products/>} />
+                <Route path='/customers' element={<Customers/>} />
+                <Route path='/transactions' element={<Transaction/>} />
             </Route>
           </Routes>
         </ThemeProvider>
