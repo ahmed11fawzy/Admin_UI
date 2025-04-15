@@ -31,8 +31,16 @@ export const userApi = corApi.injectEndpoints({
         }),
         providesTags: ['Transaction'],
       }),
+    getGeography: builder.query({
+        query: () => ({
+          url: 'client/geography',
+          method: 'GET',
+        }),
+        providesTags: ['Geography'],
+      }),
+    
   }),
 });
 
 
-export const { useGetUserQuery, useGetAllUsersQuery ,useGetAllTransactionsQuery } = userApi;
+export const { useGetUserQuery, useGetAllUsersQuery ,useGetAllTransactionsQuery,useGetGeographyQuery } = userApi;

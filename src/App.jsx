@@ -11,6 +11,7 @@ import Layout from './Pages/layout/Layout'
 import Products from './Pages/Products/Products'
 import Customers from './Pages/customers/Customers'
 import Transaction from './Pages/transaction/Transaction'
+import Geography from './Pages/geography/Geography'
 function App() {
   const mode=useSelector((state)=>state.theme.mode)
   console.log(mode)
@@ -29,6 +30,7 @@ function App() {
                 <Route path='/products' element={<Products/>} />
                 <Route path='/customers' element={<Customers/>} />
                 <Route path='/transactions' element={<Transaction/>} />
+                <Route path='/geography' element={<Geography />} />
             </Route>
           </Routes>
         </ThemeProvider>

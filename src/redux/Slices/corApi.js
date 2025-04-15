@@ -7,7 +7,7 @@ export const corApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BASE_URL,
   }),
-  tagTypes: ["User","Product","Transaction","Customers"],
+  tagTypes: ["User","Product","Transaction","Customers","Geography"],
   endpoints: () => ({}),
 });
 
