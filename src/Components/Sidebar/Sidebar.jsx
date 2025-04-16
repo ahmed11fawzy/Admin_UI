@@ -116,7 +116,7 @@ return (
   }}
   >
     <Box width="100%" >
-      <Box m={"1.5rem 2rem 2rem 3rem"}  >
+      <Box m={"1.5rem 2rem 1rem 3rem"}  >
           <FlexBetween  color={theme.palette.secondary.main} >
               <Box display="flex"  alignItems="center" >
                   <Typography variant='h4' fontWeight="bold">ECOMZISTA</Typography>
@@ -132,7 +132,7 @@ return (
           {navItems.map(({text,icon})=>{
             if(!icon){
               return (
-                <Typography key={text} sx={{m:"1.2rem 0 1rem 2rem"}} >{text}</Typography>
+                <Typography key={text} sx={{m:"1rem 0 0.5rem 1.5rem"}} color={theme.palette.primary[100]} >{text}</Typography>
               )
             }
             const toLText=text.toLowerCase()
