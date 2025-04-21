@@ -99,7 +99,7 @@ const Geography = () => {
                                 ]
                             }
                         ]}
-                          tooltip={({ feature }) => {
+                          /* tooltip={({ feature }) => {
                             const countryData = data.data.find(item => item.id === feature.id);
                             return (
                             <div style={{
@@ -112,7 +112,7 @@ const Geography = () => {
                                 {countryData ? `: ${countryData.value}` : ': No data'}
                             </div>
                             );
-                        }}
+                        }} */
                     />
                      )
                      : 

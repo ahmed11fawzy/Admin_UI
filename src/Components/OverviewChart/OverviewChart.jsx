@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { Box, LinearProgress } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-import {ResponsiveLine ,} from '@nivo/line'
+import {ResponsiveLine } from '@nivo/line'
 import {useGetOverallStatQuery} from '../../redux/Slices/sales.js'
 const OverviewChart = ({isDashboard=false,view}) => {
   const theme = useTheme()
