@@ -14,6 +14,7 @@ export const corApi = createApi({
     "Customers",
     "Geography",
     "OverallStat",
+    "Admins",
   ],
   endpoints: () => ({}),
 });
