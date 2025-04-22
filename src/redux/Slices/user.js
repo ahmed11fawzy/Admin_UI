@@ -45,12 +45,22 @@ export const userApi = corApi.injectEndpoints({
       }),
       providesTags: ["Geography"],
     }),
+    getPerformance: builder.query({
+      query: (id) => ({
+        url: `mangement/performance/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["Performance"],
+    }),
   }),
 });
 
 
-export const { useGetUserQuery, 
-               useGetAllUsersQuery ,
-               useGetAllTransactionsQuery,
-               useGetGeographyQuery ,
-               useGetAdminsQuery} = userApi;
+export const {
+  useGetUserQuery,
+  useGetAllUsersQuery,
+  useGetAllTransactionsQuery,
+  useGetGeographyQuery,
+  useGetAdminsQuery,
+  useGetPerformanceQuery,
+} = userApi;
