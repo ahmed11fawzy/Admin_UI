@@ -5,8 +5,8 @@ import {DownloadOutlined ,Email,PointOfSale,PersonAdd,Traffic } from '@mui/icons
 import Header from '../../Components/Header/Header.jsx'
 import { useGetDashboardQuery } from '../../redux/Slices/user.js'
 import { DataGrid } from '@mui/x-data-grid'
-import BreakdownChart from '../../components/BreakdownChart/BreakdownChart.jsx'
-import OverviewChart from '../../components/OverviewChart/OverviewChart.jsx'
+import BreakdownChart from '../../Components/BreakdownChart/BreakdownChart.jsx'
+import OverviewChart from '../../Components/OverviewChart/OverviewChart.jsx'
 import StateBox from '../../Components/StateBox/StateBox.jsx'
 
 const Dashboard = () => {
