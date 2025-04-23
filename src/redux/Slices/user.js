@@ -52,6 +52,13 @@ export const userApi = corApi.injectEndpoints({
       }),
       providesTags: ["Performance"],
     }),
+    getDashboard: builder.query({
+      query: () => ({
+        url: "general/dashboard",
+        method: "GET",
+      }),
+      providesTags: ["Dashboard"],
+    }),
   }),
 });
 
@@ -63,4 +70,5 @@ export const {
   useGetGeographyQuery,
   useGetAdminsQuery,
   useGetPerformanceQuery,
+  useGetDashboardQuery,
 } = userApi;

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, {  useState } from 'react'
 import {useTheme} from '@mui/material/styles'
 import {useGetAllTransactionsQuery} from '../../redux/Slices/user.js'
